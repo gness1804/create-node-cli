@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
 /**
-* {{name}}
-* {{description}}
-*/
+ * {{name}}
+ * {{description}}
+ */

@@ -170,7 +170,7 @@ callsites@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
 
-chalk@^2.0.0:
+chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
   dependencies:
@@ -178,7 +178,14 @@ chalk@^2.0.0:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@^4.0.0:
+chalk@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-3.0.0.tgz#3f73c2bf526591f574cc492c51e2456349f844e4"
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
+chalk@^4.0.0, chalk@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
   dependencies:
@@ -193,6 +200,38 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+clear-any-console@^1.16.0:
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/clear-any-console/-/clear-any-console-1.16.2.tgz#0543bb068da00151bf77b7a01ebf05d611086bb9"
+
+cli-alerts@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/cli-alerts/-/cli-alerts-1.2.2.tgz#9e5cfe662bb51b26ac8d43126f0435ddd855f02d"
+  dependencies:
+    chalk "^4.1.0"
+    log-symbols "^4.0.0"
+
+cli-handle-error@^4.1.0, cli-handle-error@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/cli-handle-error/-/cli-handle-error-4.4.0.tgz#f65d7d66c3d648a063696b5c83f3b8cc850da25d"
+  dependencies:
+    chalk "^3.0.0"
+    log-symbols "^3.0.0"
+
+cli-handle-unhandled@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/cli-handle-unhandled/-/cli-handle-unhandled-1.1.1.tgz#8a62e244e29cc74ec3f89954a8e8871a4d81e7d8"
+  dependencies:
+    cli-handle-error "^4.1.0"
+
+cli-welcome@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/cli-welcome/-/cli-welcome-2.2.2.tgz#a67c55e7826acbd8117266db73590e35b3611261"
+  dependencies:
+    chalk "^2.4.2"
+    clear-any-console "^1.16.0"
+    prettier "^2.0.5"
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -314,7 +353,7 @@ end-of-stream@^1.1.0:
   dependencies:
     once "^1.4.0"
 
-enquirer@^2.3.5:
+enquirer@^2.3.5, enquirer@^2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/enquirer/-/enquirer-2.3.6.tgz#2a7fe5dd634a1e4125a975ec994ff5456dc3734d"
   dependencies:
@@ -695,6 +734,10 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
+is-unicode-supported@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/is-unicode-supported/-/is-unicode-supported-0.1.0.tgz#3f26c76a809593b52bfa2ecb5710ed2779b522a7"
+
 is-windows@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/is-windows/-/is-windows-1.0.2.tgz#d1850eb9791ecd18e6182ce12a30f396634bb19d"
@@ -778,6 +821,19 @@ lodash.merge@^4.6.2:
 lodash.truncate@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.truncate/-/lodash.truncate-4.4.2.tgz#5a350da0b1113b837ecfffd5812cbe58d6eae193"
+
+log-symbols@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-3.0.0.tgz#f3a08516a5dea893336a7dee14d18a1cfdab77c4"
+  dependencies:
+    chalk "^2.4.2"
+
+log-symbols@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-4.1.0.tgz#3fbdbb95b4683ac9fc785111e792e558d4abd503"
+  dependencies:
+    chalk "^4.1.0"
+    is-unicode-supported "^0.1.0"
 
 lru-cache@^6.0.0:
   version "6.0.0"
@@ -944,7 +1000,7 @@ prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
 
-prettier@^2.3.1:
+prettier@^2.0.5, prettier@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
 
