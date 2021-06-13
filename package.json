@@ -1,0 +1,11 @@
+{
+  "name": "create-node-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "gness1804 <graham.nessler@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "prettier": "^2.3.1"
+  }
+}
