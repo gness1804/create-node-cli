@@ -8,9 +8,9 @@ coverage
 # common config and doc files; uncomment as appropriate
 .eslintrc.js
 # .babelrc
-# package.json
-# README.md
+package.json
+README.md
 # webpack.config.js
-# .prettierrc.json
+.prettierrc.json
 # project-specific custom files
 

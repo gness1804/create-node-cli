@@ -2,10 +2,10 @@
 node_modules
 # common config and doc files; uncomment as appropriate
 .prettierrc.json
-# .eslintrc.js
+.eslintrc.js
 # .babelrc
-# package.json
-# README.md
+package.json
+README.md
 # webpack.config.js
 # project-specific files
 
