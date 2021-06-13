@@ -11,6 +11,9 @@
     "lint": "eslint . && prettier --check .",
     "fix": "eslint --fix . && prettier --write ."
   },
+  "pre-commit": [
+    "lint"
+  ],
   "author": "gness1804 <graham.nessler@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -23,6 +26,7 @@
     "cli-handle-unhandled": "^1.1.1",
     "cli-welcome": "^2.2.2",
     "copy-template-dir": "^1.4.0",
-    "enquirer": "^2.3.6"
+    "enquirer": "^2.3.6",
+    "pre-commit": "^1.2.2"
   }
 }

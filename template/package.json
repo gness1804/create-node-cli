@@ -8,5 +8,8 @@
   "scripts": {
     "lint": "eslint . && prettier --check .",
     "fix": "eslint --fix . && prettier --write ."
-  }
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }
