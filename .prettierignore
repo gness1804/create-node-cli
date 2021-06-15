@@ -5,6 +5,7 @@ node_modules
 .eslintrc.js
 # .babelrc
 package.json
+_package.json
 README.md
 # webpack.config.js
 # project-specific files
