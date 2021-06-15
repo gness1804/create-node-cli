@@ -4,6 +4,8 @@
 const path = require('path');
 const copy = require('copy-template-dir');
 const handleError = require('cli-handle-error');
+const { bold, dim } = require('chalk');
+const alert = require('cli-alerts');
 
 const init = require('./utils/init');
 const ask = require('./utils/ask');
@@ -38,19 +40,25 @@ const ask = require('./utils/ask');
       nvmVersion,
       authorName,
     };
-    const inDir = path.join(__dirname, 'template');
-    const outDir = path.join(process.cwd(), `out/${vars.name}`);
+    const outDir = `out/${vars.name}`;
+    const inDirPath = path.join(__dirname, 'template');
+    const outDirPath = path.join(process.cwd(), outDir);
 
-    copy(inDir, outDir, vars, (err, createdFiles) => {
+    copy(inDirPath, outDirPath, vars, (err, createdFiles) => {
       if (err) throw err;
-      console.log();
-      console.log(`Creating files in ./out/${vars.name}`);
+
+      console.log(`\nCreating files in ${bold.green(outDir)}:`);
+
       createdFiles.forEach((filePath) => {
         const file = path.basename(filePath);
-        console.log(file);
+        console.log(`- ${file}`);
       });
-      console.info('done!');
-      console.log();
+
+      alert({
+        type: 'success',
+        name: 'Done!',
+        msg: `\n\n${createdFiles.length} files were created in ${dim(outDir)}.`,
+      });
     });
   } catch (error) {
     handleError('Failed to create new CLI', error);
