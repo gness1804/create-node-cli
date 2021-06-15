@@ -16,11 +16,18 @@ const ask = require('./utils/ask');
       message: 'Name of your CLI?',
       hint: 'kebab-case-only',
     });
+    const description = await ask({
+      message: 'Description of your CLI?',
+    });
+    const version = await ask({
+      message: 'Version of your CLI?',
+      initial: '0.1.1',
+    });
 
     const vars = {
       name,
-      description: 'Something to groom aspects of a CLI.',
-      version: '0.1.1',
+      description,
+      version,
     };
     const inDir = path.join(__dirname, 'template');
     const outDir = path.join(process.cwd(), `out/${vars.name}`);
@@ -28,7 +35,7 @@ const ask = require('./utils/ask');
     copy(inDir, outDir, vars, (err, createdFiles) => {
       if (err) throw err;
       console.log();
-      console.log(`Creating files in ./${vars.name}`);
+      console.log(`Creating files in ./out/${vars.name}`);
       createdFiles.forEach((filePath) => {
         const file = path.basename(filePath);
         console.log(file);
