@@ -1,8 +1,0 @@
-{
-  "name": "cli-groomer",
-  "description": "Something to groom aspects of a CLI.",
-  "version": "0.1.1",
-  "bin": {
-    "cli-groomer": "index.js"
-  }
-}
