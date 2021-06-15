@@ -4,7 +4,8 @@
   "version": "{{version}}",
   "author": "{{authorName}}",
   "bin": {
-    "{{name}}": "index.js"
+    "{{name}}": "index.js",
+    "{{command}}": "index.js"
   },
   "scripts": {
     "lint": "eslint . && prettier --check .",

@@ -1,13 +1,12 @@
 const { Input } = require('enquirer');
 const handleError = require('cli-handle-error');
 
-module.exports = async ({ message, hint = '', initial = '', authorName }) => {
+module.exports = async ({ message, hint = '', initial = '' }) => {
   try {
     const prompt = new Input({
       message,
       hint,
       initial,
-      authorName,
       // TODO: add validation.
     });
     const res = await prompt.run();

@@ -18,6 +18,10 @@ const ask = require('./utils/ask');
       message: 'Name of your CLI?',
       hint: 'kebab-case-only',
     });
+    const command = await ask({
+      message: 'CLI command',
+      hint: 'Optional - if different than CLI Name.',
+    });
     const description = await ask({
       message: 'Description of your CLI?',
     });
@@ -35,6 +39,7 @@ const ask = require('./utils/ask');
 
     const vars = {
       name,
+      command: command ? command : name,
       description,
       version,
       nvmVersion,

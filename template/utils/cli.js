@@ -22,7 +22,7 @@ const commands = {
 };
 
 const helpText = meowHelp({
-  name: '{{name}}',
+  name: '{{command}}',
   flags,
   commands,
 });
