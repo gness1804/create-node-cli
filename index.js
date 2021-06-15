@@ -23,11 +23,16 @@ const ask = require('./utils/ask');
       message: 'Version of your CLI?',
       initial: '0.1.1',
     });
+    const nvmVersion = await ask({
+      message: 'node version for .nvmrc?',
+      initial: '14.16.1',
+    });
 
     const vars = {
       name,
       description,
       version,
+      nvmVersion,
     };
     const inDir = path.join(__dirname, 'template');
     const outDir = path.join(process.cwd(), `out/${vars.name}`);
