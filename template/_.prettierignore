@@ -1,4 +1,3 @@
-
 node_modules
 # common config and doc files; uncomment as appropriate
 .prettierrc.json
@@ -9,7 +8,3 @@ _package.json
 README.md
 # webpack.config.js
 # project-specific files
-template/_.eslintrc.js
-template/_.prettierrc.json
-out/
-
