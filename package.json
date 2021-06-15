@@ -10,7 +10,9 @@
   "scripts": {
     "lint": "eslint . && prettier --check .",
     "fix": "eslint --fix . && prettier --write .",
-    "start": "node index.js"
+    "start": "node index.js",
+    "clean": "node ./utils/clean.js"
+
   },
   "pre-commit": [
     "lint"
@@ -28,6 +30,7 @@
     "cli-welcome": "^2.2.2",
     "copy-template-dir": "^1.4.0",
     "enquirer": "^2.3.6",
+    "execa": "^5.1.1",
     "pre-commit": "^1.2.2"
   }
 }

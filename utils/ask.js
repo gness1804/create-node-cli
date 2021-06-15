@@ -1,7 +1,7 @@
 const { Input } = require('enquirer');
 const handleError = require('cli-handle-error');
 
-module.exports = async ({ message, hint, initial = '' }) => {
+module.exports = async ({ message, hint = '', initial = '' }) => {
   try {
     const prompt = new Input({
       message,
