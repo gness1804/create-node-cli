@@ -27,12 +27,16 @@ const ask = require('./utils/ask');
       message: 'node version for .nvmrc?',
       initial: '14.16.1',
     });
+    const authorName = await ask({
+      message: 'Name of the author?',
+    });
 
     const vars = {
       name,
       description,
       version,
       nvmVersion,
+      authorName,
     };
     const inDir = path.join(__dirname, 'template');
     const outDir = path.join(process.cwd(), `out/${vars.name}`);
