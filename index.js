@@ -3,8 +3,6 @@
 
 import path from 'path';
 import copy from 'copy-template-dir';
-import meow from 'meow';
-import meowHelp from 'cli-meow-help';
 import handleError from 'cli-handle-error';
 import pkg from 'chalk';
 const { bold, dim } = pkg;
@@ -13,40 +11,7 @@ import { fileURLToPath } from 'url';
 
 import init from './utils/init.js';
 import ask from './utils/ask.js';
-
-// TODO: move back into separate file
-const flags = {
-  debug: {
-    type: 'boolean',
-    default: false,
-    alias: 'd',
-    desc: 'Print debug info.',
-  },
-  version: {
-    type: 'boolean',
-    alias: 'v',
-    desc: 'Print CLI version.',
-  },
-};
-
-const commands = {
-  help: {
-    desc: 'Print out help info.',
-  },
-};
-
-const helpText = meowHelp({
-  name: 'npx ncli',
-  desc: 'A utility to create CLIs.',
-  flags,
-  commands,
-});
-
-const cli = meow(helpText, {
-  importMeta: import.meta,
-  description: false,
-  flags,
-});
+import cli from './utils/cli.js';
 
 const { input, showHelp } = cli;
 
