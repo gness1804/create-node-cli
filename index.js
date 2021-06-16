@@ -1,17 +1,59 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 
-const path = require('path');
-const copy = require('copy-template-dir');
-const handleError = require('cli-handle-error');
-const { bold, dim } = require('chalk');
-const alert = require('cli-alerts');
+import path from 'path';
+import copy from 'copy-template-dir';
+import meow from 'meow';
+import meowHelp from 'cli-meow-help';
+import handleError from 'cli-handle-error';
+import pkg from 'chalk';
+const { bold, dim } = pkg;
+import alert from 'cli-alerts';
+import { fileURLToPath } from 'url';
 
-const init = require('./utils/init');
-const ask = require('./utils/ask');
+import init from './utils/init.js';
+import ask from './utils/ask.js';
+
+// TODO: move back into separate file
+const flags = {
+  debug: {
+    type: 'boolean',
+    default: false,
+    alias: 'd',
+    desc: 'Print debug info.',
+  },
+  version: {
+    type: 'boolean',
+    alias: 'v',
+    desc: 'Print CLI version.',
+  },
+};
+
+const commands = {
+  help: {
+    desc: 'Print out help info.',
+  },
+};
+
+const helpText = meowHelp({
+  name: 'npx ncli',
+  desc: 'A utility to create CLIs.',
+  flags,
+  commands,
+});
+
+const cli = meow(helpText, {
+  importMeta: import.meta,
+  description: false,
+  flags,
+});
+
+const { input, showHelp } = cli;
 
 (async () => {
   init();
+
+  if (input.includes('help')) showHelp(0);
 
   try {
     const name = await ask({
@@ -46,6 +88,7 @@ const ask = require('./utils/ask');
       authorName,
     };
     const outDir = `out/${vars.name}`;
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
     const inDirPath = path.join(__dirname, 'template');
     const outDirPath = path.join(process.cwd(), outDir);
 

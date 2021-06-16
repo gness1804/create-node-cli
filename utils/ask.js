@@ -1,7 +1,8 @@
-const { Input } = require('enquirer');
-const handleError = require('cli-handle-error');
+import pkg from 'enquirer';
+const { Input } = pkg;
+import handleError from 'cli-handle-error';
 
-module.exports = async ({ message, hint = '', initial = '' }) => {
+const func = async ({ message, hint = '', initial = '' }) => {
   try {
     const prompt = new Input({
       message,
@@ -15,3 +16,5 @@ module.exports = async ({ message, hint = '', initial = '' }) => {
     handleError('Failed to retrieve user response', error);
   }
 };
+
+export default func;

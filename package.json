@@ -2,6 +2,7 @@
   "name": "create-node-cli",
   "version": "0.0.1",
   "description": "A scaffolding tool to create production-ready Node CLIs.",
+  "type": "module",
   "main": "index.js",
   "bin": {
     "create-node-cli": "index.js",
@@ -10,7 +11,7 @@
   "scripts": {
     "lint": "eslint . && prettier --check .",
     "fix": "eslint --fix . && prettier --write .",
-    "start": "node index.js",
+    "start": "node --experimental-json-modules index.js",
     "clean": "node ./utils/clean.js"
   },
   "pre-commit": [
@@ -23,6 +24,7 @@
     "prettier": "^2.3.1"
   },
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "chalk": "^4.1.1",
     "cli-alerts": "^1.2.2",
     "cli-handle-error": "^4.4.0",

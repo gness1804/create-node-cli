@@ -3,6 +3,7 @@ node_modules
 # common config and doc files; uncomment as appropriate
 .prettierrc.json
 .eslintrc.js
+.eslintrc.cjs
 # .babelrc
 package.json
 _package.json

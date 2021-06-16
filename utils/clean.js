@@ -1,5 +1,6 @@
-const execa = require('execa');
-const { Toggle } = require('enquirer');
+import execa from 'execa';
+import pkg from 'enquirer';
+const { Toggle } = pkg;
 
 (async () => {
   const prompt = new Toggle({
