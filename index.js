@@ -12,8 +12,10 @@ import { fileURLToPath } from 'url';
 import init from './utils/init.js';
 import cli from './utils/cli.js';
 import questions from './utils/questions.js';
+import log from './utils/log.js';
 
-const { input, showHelp } = cli;
+const { flags, input, showHelp } = cli;
+const { debug } = flags;
 
 (async () => {
   init();
@@ -23,6 +25,8 @@ const { input, showHelp } = cli;
   const vars = await questions();
 
   try {
+    debug && log(flags);
+
     const outDir = `out/${vars.name}`;
     const __dirname = path.dirname(fileURLToPath(import.meta.url));
     const inDirPath = path.join(__dirname, 'template');
