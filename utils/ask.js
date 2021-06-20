@@ -2,6 +2,11 @@ import pkg from 'enquirer';
 const { Input } = pkg;
 import handleError from 'cli-handle-error';
 import { existsSync } from 'fs';
+import { Store } from 'data-store';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const func = async ({ name, message, hint = '', initial = '' }) => {
   try {
@@ -10,6 +15,12 @@ const func = async ({ name, message, hint = '', initial = '' }) => {
       message,
       hint,
       initial,
+      history: {
+        autosave: true,
+        store: new Store({
+          path: path.join(__dirname, `../.history/${name}.json`),
+        }),
+      },
       validate(value, state) {
         if (state && state.name === 'command') return true;
         if (state && state.name === 'name') {
