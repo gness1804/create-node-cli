@@ -10,6 +10,8 @@ const { bold, dim, yellow, green } = chalk;
 import alert from 'cli-alerts';
 import { fileURLToPath } from 'url';
 import ora from 'ora';
+import enquirer from 'enquirer';
+const { Toggle } = enquirer;
 
 import init from './utils/init.js';
 import cli from './utils/cli.js';
@@ -25,6 +27,14 @@ const spinner = ora({ text: '' });
   init();
 
   if (input.includes('help')) showHelp(0);
+
+  const prompt = new Toggle({
+    message: 'Preferred package manager?',
+    enabled: 'yarn',
+    disabled: 'npm',
+  });
+
+  const useYarn = await prompt.run();
 
   const vars = await questions();
 
@@ -46,11 +56,29 @@ const spinner = ora({ text: '' });
         console.log(`- ${file}`);
       });
 
-      // clean up the output dir.
-      spinner.start(`${yellow('Dedupe command')} running...`);
+      // install dependencies and clean up the output dir.
+      const prodDeps = [
+        'meow',
+        'cli-meow-help',
+        'cli-alerts',
+        'cli-handle-error',
+      ];
+
+      const devDeps = ['eslint', 'prettier'];
+
+      spinner.start(
+        `\n ${yellow('Installing dependencies.')} This may take a moment...`,
+      );
       process.chdir(outDir);
+      if (useYarn) {
+        await execa('yarn', ['add', ...prodDeps]);
+        await execa('yarn', ['add', ...devDeps, '-D']);
+      } else {
+        await execa('npm', ['install', ...prodDeps]);
+        await execa('npm', ['install', ...devDeps, '-D']);
+      }
       await execa('npm', ['dedupe']);
-      spinner.succeed(`${green('Dedupe command')} succeeded.`);
+      spinner.succeed(`${green('Installation of dependencies')} succeeded.`);
 
       alert({
         type: 'success',
