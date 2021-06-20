@@ -11,10 +11,10 @@ const func = async ({ name, message, hint = '', initial = '' }) => {
       initial,
       validate(value, state) {
         if (state && state.name === 'command') return true;
-        // if (message === 'Name of your CLI?') {
-        //   // reject name if not kebab case
-        //   if (!value.match(/^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/)) return false;
-        // }
+        if (state && state.name === 'name') {
+          // reject if name is not kebab-case.
+          if (!value.match(/^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/)) return false;
+        }
         return !value ? 'Please add a value.' : true;
       },
     });
