@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 
 import path from 'path';
+import execa from 'execa';
 import copy from 'copy-template-dir';
 import handleError from 'cli-handle-error';
 import pkg from 'chalk';
@@ -32,7 +33,7 @@ const { debug } = flags;
     const inDirPath = path.join(__dirname, 'template');
     const outDirPath = path.join(process.cwd(), outDir);
 
-    copy(inDirPath, outDirPath, vars, (err, createdFiles) => {
+    copy(inDirPath, outDirPath, vars, async (err, createdFiles) => {
       if (err) throw err;
 
       console.log(`\nCreating files in ${bold.green(outDir)}:`);
@@ -41,6 +42,10 @@ const { debug } = flags;
         const file = path.basename(filePath);
         console.log(`- ${file}`);
       });
+
+      // clean up the output dir.
+      process.chdir(outDir);
+      await execa('npm', ['dedupe']);
 
       alert({
         type: 'success',
