@@ -1,6 +1,6 @@
-import execa from 'execa';
-import pkg from 'enquirer';
-const { Toggle } = pkg;
+import enquirer from 'enquirer';
+const { Toggle } = enquirer;
+import rimraf from 'rimraf';
 
 (async () => {
   const prompt = new Toggle({
@@ -9,9 +9,10 @@ const { Toggle } = pkg;
 
   const res = await prompt.run();
   if (res) {
-    await execa('rm', ['-rf', './out']);
-    /*eslint-disable-next-line no-console */
-    console.info('Deleted all generated CLIs.');
+    rimraf('./out', () => {
+      /*eslint-disable-next-line no-console */
+      console.info('Deleted all generated CLIs.');
+    });
   } else {
     /*eslint-disable-next-line no-console */
     console.info("You didn't delete all your out CLIs. Whew! That was close!");

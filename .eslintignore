@@ -15,4 +15,5 @@ README.md
 .prettierrc.json
 # project-specific custom files
 out/
+.history/
 

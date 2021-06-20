@@ -10,17 +10,23 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const func = async ({ name, message, hint = '', initial = '' }) => {
   try {
+    let history = false;
+    if (!initial) {
+      // persist value for next run of CLI.
+      history = {
+        autosave: true,
+        store: new Store({
+          path: path.join(__dirname, `../.history/${name}.json`),
+        }),
+      };
+    }
+
     const prompt = new Input({
       name,
       message,
       hint,
       initial,
-      history: {
-        autosave: true,
-        store: new Store({
-          path: path.join(__dirname, `../.history/${name}.json`),
-        }),
-      },
+      history,
       validate(value, state) {
         if (state && state.name === 'command') return true;
         if (state && state.name === 'name') {

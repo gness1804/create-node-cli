@@ -13,4 +13,5 @@ README.md
 template/_.eslintrc.js
 template/_.prettierrc.json
 out/
+.history/
 

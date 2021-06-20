@@ -123,4 +123,5 @@ dist
 # DS Store
 .DS_Store
 # project-specific files
+.history/
 
