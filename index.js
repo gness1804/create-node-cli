@@ -5,10 +5,11 @@ import path from 'path';
 import execa from 'execa';
 import copy from 'copy-template-dir';
 import handleError from 'cli-handle-error';
-import pkg from 'chalk';
-const { bold, dim } = pkg;
+import chalk from 'chalk';
+const { bold, dim, yellow, green } = chalk;
 import alert from 'cli-alerts';
 import { fileURLToPath } from 'url';
+import ora from 'ora';
 
 import init from './utils/init.js';
 import cli from './utils/cli.js';
@@ -17,6 +18,8 @@ import log from './utils/log.js';
 
 const { flags, input, showHelp } = cli;
 const { debug } = flags;
+
+const spinner = ora({ text: '' });
 
 (async () => {
   init();
@@ -44,8 +47,10 @@ const { debug } = flags;
       });
 
       // clean up the output dir.
+      spinner.start(`${yellow('Dedupe command')} running...`);
       process.chdir(outDir);
       await execa('npm', ['dedupe']);
+      spinner.succeed(`${green('Dedupe command')} succeeded.`);
 
       alert({
         type: 'success',
