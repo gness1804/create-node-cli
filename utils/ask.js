@@ -1,6 +1,7 @@
 import pkg from 'enquirer';
 const { Input } = pkg;
 import handleError from 'cli-handle-error';
+import { existsSync } from 'fs';
 
 const func = async ({ name, message, hint = '', initial = '' }) => {
   try {
@@ -13,7 +14,14 @@ const func = async ({ name, message, hint = '', initial = '' }) => {
         if (state && state.name === 'command') return true;
         if (state && state.name === 'name') {
           // reject if name is not kebab-case.
-          if (!value.match(/^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/)) return false;
+          if (!value.match(/^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/))
+            return 'Name must be in kebab-case.';
+          // check if the dir already exists.
+          if (existsSync(`./out/${value}`)) {
+            return `Directory already exists: ./out/${value}`;
+          } else {
+            return true;
+          }
         }
         return !value ? 'Please add a value.' : true;
       },
