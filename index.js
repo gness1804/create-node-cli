@@ -62,6 +62,7 @@ const spinner = ora({ text: '' });
         'cli-meow-help',
         'cli-alerts',
         'cli-handle-error',
+        'babel-eslint',
       ];
 
       const devDeps = ['eslint', 'prettier'];
