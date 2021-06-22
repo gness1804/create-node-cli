@@ -1,6 +1,6 @@
 {
   "name": "create-node-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A scaffolding tool to create production-ready Node CLIs.",
   "type": "module",
   "main": "index.js",
