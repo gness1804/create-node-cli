@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const cli = require('./utils/cli');
-const log = require('./utils/log');
+import cli from './utils/cli.js';
+import log from './utils/log.js';
 
 const { input, flags } = cli;
 const { debug } = flags;
@@ -15,6 +15,11 @@ const { debug } = flags;
 (async () => {
   // show help if requested
   input.includes('help') && cli.showHelp(0);
+
+  /*eslint-disable-next-line no-console */
+  console.info(
+    'If you can read this, the CLI works! Now on to the hard part...',
+  );
 
   debug && log(flags);
 })();

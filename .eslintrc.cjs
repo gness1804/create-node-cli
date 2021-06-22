@@ -1,4 +1,5 @@
-
+// prettier-ignore
+/* eslint-disable */
 module.exports = {
   root: true,
   /* only if using TypeScript. If so, run 'yarn add @typescript-eslint/parser' */

@@ -1,6 +1,6 @@
-const alert = require('cli-alerts');
+import alert from 'cli-alerts';
 
-module.exports = (info) => {
+const func = (info) => {
   alert({
     type: 'warning',
     name: 'DEBUG LOG',
@@ -10,3 +10,5 @@ module.exports = (info) => {
   /*eslint-disable-next-line no-console */
   console.info('info:', info);
 };
+
+export default func;

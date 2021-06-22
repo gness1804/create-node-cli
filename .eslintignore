@@ -8,6 +8,7 @@ coverage
 # common config and doc files; uncomment as appropriate
 .eslintrc.js
 .eslintrc.cjs
+template/_.eslintrc.cjs
 # .babelrc
 package.json
 README.md

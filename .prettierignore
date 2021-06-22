@@ -10,7 +10,7 @@ _package.json
 README.md
 # webpack.config.js
 # project-specific files
-template/_.eslintrc.js
+template/_.eslintrc.cjs
 template/_.prettierrc.json
 out/
 .history/
