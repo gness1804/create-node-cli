@@ -1,5 +1,5 @@
 import welcome from 'cli-welcome';
-import pkg from '../package.json';
+// import pkg from '../package.json';
 import unhandled from 'cli-handle-unhandled';
 
 const func = () => {
@@ -7,8 +7,8 @@ const func = () => {
   welcome({
     title: 'create-node-cli',
     tagLine: 'by Graham, sort of',
-    description: pkg.description,
-    version: pkg.version,
+    description: '',
+    version: '',
     bgColor: '#6cc24a',
     color: '#000',
     bold: true,

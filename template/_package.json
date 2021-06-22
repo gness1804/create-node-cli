@@ -9,7 +9,8 @@
   },
   "scripts": {
     "lint": "eslint . && prettier --check .",
-    "fix": "eslint --fix . && prettier --write ."
+    "fix": "eslint --fix . && prettier --write .",
+    "start": "node index.js"
   },
   "pre-commit": [
     "lint"
