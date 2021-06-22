@@ -2,6 +2,7 @@
   "name": "create-node-cli",
   "version": "0.0.1",
   "description": "A scaffolding tool to create production-ready Node CLIs.",
+  "type": "module",
   "main": "index.js",
   "bin": {
     "create-node-cli": "index.js",
@@ -10,8 +11,9 @@
   "scripts": {
     "lint": "eslint . && prettier --check .",
     "fix": "eslint --fix . && prettier --write .",
-    "start": "node index.js",
-    "clean": "node ./utils/clean.js"
+    "start": "node --experimental-json-modules index.js",
+    "clean": "node ./utils/clean.js",
+    "forget": "rimraf .history && echo \"Removed CLI commands history.\""
   },
   "pre-commit": [
     "lint"
@@ -23,6 +25,7 @@
     "prettier": "^2.3.1"
   },
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "chalk": "^4.1.1",
     "cli-alerts": "^1.2.2",
     "cli-handle-error": "^4.4.0",
@@ -30,9 +33,12 @@
     "cli-meow-help": "^2.0.2",
     "cli-welcome": "^2.2.2",
     "copy-template-dir": "^1.4.0",
+    "data-store": "^4.0.3",
     "enquirer": "^2.3.6",
     "execa": "^5.1.1",
     "meow": "^10.0.1",
-    "pre-commit": "^1.2.2"
+    "ora": "^5.4.1",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^3.0.2"
   }
 }

@@ -1,55 +1,52 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 
-const path = require('path');
-const copy = require('copy-template-dir');
-const handleError = require('cli-handle-error');
-const { bold, dim } = require('chalk');
-const alert = require('cli-alerts');
+import path from 'path';
+import execa from 'execa';
+import copy from 'copy-template-dir';
+import handleError from 'cli-handle-error';
+import chalk from 'chalk';
+const { bold, dim, yellow, green } = chalk;
+import alert from 'cli-alerts';
+import { fileURLToPath } from 'url';
+import ora from 'ora';
+import enquirer from 'enquirer';
+const { Toggle } = enquirer;
 
-const init = require('./utils/init');
-const ask = require('./utils/ask');
+import init from './utils/init.js';
+import cli from './utils/cli.js';
+import questions from './utils/questions.js';
+import log from './utils/log.js';
+
+const { flags, input, showHelp } = cli;
+const { debug } = flags;
+
+const spinner = ora({ text: '' });
 
 (async () => {
   init();
 
-  try {
-    const name = await ask({
-      message: 'Name of your CLI?',
-      hint: 'kebab-case-only',
-    });
-    const command = await ask({
-      message: 'CLI command',
-      hint: 'Optional - if different than CLI Name.',
-    });
-    const description = await ask({
-      message: 'Description of your CLI?',
-    });
-    const version = await ask({
-      message: 'Version of your CLI?',
-      initial: '0.1.1',
-    });
-    const nvmVersion = await ask({
-      message: 'node version for .nvmrc?',
-      initial: '14.16.1',
-    });
-    const authorName = await ask({
-      message: 'Name of the author?',
-    });
+  if (input.includes('help')) showHelp(0);
 
-    const vars = {
-      name,
-      command: command ? command : name,
-      description,
-      version,
-      nvmVersion,
-      authorName,
-    };
+  const prompt = new Toggle({
+    message: 'Preferred package manager?',
+    enabled: 'yarn',
+    disabled: 'npm',
+  });
+
+  const useYarn = await prompt.run();
+
+  const vars = await questions();
+
+  try {
+    debug && log(flags);
+
     const outDir = `out/${vars.name}`;
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
     const inDirPath = path.join(__dirname, 'template');
     const outDirPath = path.join(process.cwd(), outDir);
 
-    copy(inDirPath, outDirPath, vars, (err, createdFiles) => {
+    copy(inDirPath, outDirPath, vars, async (err, createdFiles) => {
       if (err) throw err;
 
       console.log(`\nCreating files in ${bold.green(outDir)}:`);
@@ -58,6 +55,30 @@ const ask = require('./utils/ask');
         const file = path.basename(filePath);
         console.log(`- ${file}`);
       });
+
+      // install dependencies and clean up the output dir.
+      const prodDeps = [
+        'meow',
+        'cli-meow-help',
+        'cli-alerts',
+        'cli-handle-error',
+      ];
+
+      const devDeps = ['eslint', 'prettier'];
+
+      spinner.start(
+        `\n ${yellow('Installing dependencies.')} This may take a moment...`,
+      );
+      process.chdir(outDir);
+      if (useYarn) {
+        await execa('yarn', ['add', ...prodDeps]);
+        await execa('yarn', ['add', ...devDeps, '-D']);
+      } else {
+        await execa('npm', ['install', ...prodDeps]);
+        await execa('npm', ['install', ...devDeps, '-D']);
+      }
+      await execa('npm', ['dedupe']);
+      spinner.succeed(`${green('Installation of dependencies')} succeeded.`);
 
       alert({
         type: 'success',

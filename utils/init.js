@@ -1,8 +1,8 @@
-const welcome = require('cli-welcome');
-const pkg = require('../package.json');
-const unhandled = require('cli-handle-unhandled');
+import welcome from 'cli-welcome';
+import pkg from '../package.json';
+import unhandled from 'cli-handle-unhandled';
 
-module.exports = () => {
+const func = () => {
   unhandled();
   welcome({
     title: 'create-node-cli',
@@ -15,3 +15,5 @@ module.exports = () => {
     clear: true,
   });
 };
+
+export default func;

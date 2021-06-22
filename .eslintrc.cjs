@@ -25,6 +25,7 @@ module.exports = {
     // only if using React
     // 'plugin:react/recommended',
   ],
+  parser: 'babel-eslint',
   rules: {
     'no-console': 'error',
     // the two below are only if using TypeScript

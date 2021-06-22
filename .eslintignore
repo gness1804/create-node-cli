@@ -7,6 +7,7 @@ build
 coverage
 # common config and doc files; uncomment as appropriate
 .eslintrc.js
+.eslintrc.cjs
 # .babelrc
 package.json
 README.md
@@ -14,4 +15,5 @@ README.md
 .prettierrc.json
 # project-specific custom files
 out/
+.history/
 
