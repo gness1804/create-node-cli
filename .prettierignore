@@ -12,6 +12,7 @@ README.md
 # project-specific files
 template/_.eslintrc.cjs
 template/_.prettierrc.json
+template/_README.md
 out/
 .history/
 
