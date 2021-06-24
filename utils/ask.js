@@ -34,8 +34,8 @@ const func = async ({ name, message, hint = '', initial = '' }) => {
           if (!value.match(/^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/))
             return 'Name must be in kebab-case.';
           // check if the dir already exists.
-          if (existsSync(`./out/${value}`)) {
-            return `Directory already exists: ./out/${value}`;
+          if (existsSync(value)) {
+            return `Directory already exists: ${value}`;
           } else {
             return true;
           }

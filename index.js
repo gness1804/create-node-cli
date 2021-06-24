@@ -41,7 +41,7 @@ const spinner = ora({ text: '' });
   try {
     debug && log(flags);
 
-    const outDir = `out/${vars.name}`;
+    const outDir = vars.name;
     const __dirname = path.dirname(fileURLToPath(import.meta.url));
     const inDirPath = path.join(__dirname, 'template');
     const outDirPath = path.join(process.cwd(), outDir);
