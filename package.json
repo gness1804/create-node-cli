@@ -12,6 +12,7 @@
     "lint": "eslint . && prettier --check .",
     "fix": "eslint --fix . && prettier --write .",
     "start": "node --experimental-json-modules index.js",
+    "clean": "node ./utils/clean.js",
     "forget": "rimraf .history && echo \"Removed CLI commands history.\""
   },
   "pre-commit": [
