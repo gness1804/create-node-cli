@@ -4,12 +4,12 @@ import rimraf from 'rimraf';
 
 (async () => {
   const prompt = new Toggle({
-    message: 'Do you want to delete all generated CLIs in the /out directory?',
+    message: 'Do you want to delete all generated CLIs?',
   });
 
   const res = await prompt.run();
   if (res) {
-    rimraf('./out', () => {
+    rimraf('./test*', () => {
       /*eslint-disable-next-line no-console */
       console.info('Deleted all generated CLIs.');
     });
