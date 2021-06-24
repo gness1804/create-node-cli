@@ -1,0 +1,31 @@
+{
+  "name": "testing",
+  "description": "test",
+  "version": "0.1.1",
+  "author": "Graham Nessler",
+  "type": "module",
+  "bin": {
+    "testing": "index.js",
+    "A quiz": "index.js"
+  },
+  "scripts": {
+    "lint": "eslint . && prettier --check .",
+    "fix": "eslint --fix . && prettier --write .",
+    "start": "node index.js"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "cli-alerts": "^1.2.2",
+    "cli-handle-error": "^4.4.0",
+    "cli-meow-help": "^2.0.2",
+    "meow": "^10.0.1",
+    "pre-commit": "^1.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.29.0",
+    "prettier": "^2.3.1"
+  }
+}
