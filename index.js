@@ -56,10 +56,6 @@ const spinner = ora({ text: '' });
         console.log(`- ${file}`);
       });
 
-      await execa('git', ['init']);
-      await execa('git', ['add', '.']);
-      await execa('git', ['commit', '-m', 'Init commit']);
-
       // install dependencies and clean up the output dir.
       const prodDeps = [
         'meow',
