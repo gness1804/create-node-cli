@@ -11,7 +11,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const func = async ({ name, message, hint = '', initial = '' }) => {
   try {
     let history = false;
-    if (!initial) {
+    if (
+      !initial &&
+      name !== 'name' &&
+      name !== 'command' &&
+      name !== 'description'
+    ) {
       // persist value for next run of CLI.
       history = {
         autosave: true,
