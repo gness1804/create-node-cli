@@ -63,7 +63,6 @@ const spinner = ora({ text: '' });
         'cli-alerts',
         'cli-handle-error',
         'babel-eslint',
-        'pre-commit',
       ];
 
       const devDeps = ['eslint', 'prettier'];
