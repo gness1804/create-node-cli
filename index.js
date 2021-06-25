@@ -74,11 +74,14 @@ const spinner = ora({ text: '' });
       if (useYarn) {
         await execa('yarn', ['add', ...prodDeps]);
         await execa('yarn', ['add', ...devDeps, '-D']);
+        // dedupes and cleans up packages
+        await execa('yarn', ['install']);
       } else {
         await execa('npm', ['install', ...prodDeps]);
         await execa('npm', ['install', ...devDeps, '-D']);
+        // dedupes and cleans up packages
+        await execa('npm', ['dedupe']);
       }
-      await execa('npm', ['dedupe']);
       spinner.succeed(`${green('Installation of dependencies')} succeeded.`);
 
       alert({
