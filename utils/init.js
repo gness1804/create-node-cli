@@ -7,6 +7,7 @@ const require = createRequire(import.meta.url); // construct the require method
 const pkg = require('../package.json'); // use the require method
 
 import unhandled from 'cli-handle-unhandled';
+import updateNotifier from 'update-notifier';
 
 const func = () => {
   unhandled();
@@ -20,8 +21,8 @@ const func = () => {
     bold: true,
     clear: true,
   });
-};
 
-// TODO: add the updater.
+  updateNotifier({ pkg }).notify();
+};
 
 export default func;
