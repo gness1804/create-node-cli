@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import init from './utils/init.js';
 import cli from './utils/cli.js';
 import log from './utils/log.js';
 
@@ -13,6 +14,8 @@ const { debug } = flags;
  */
 
 (async () => {
+  init();
+
   // show help if requested
   input.includes('help') && cli.showHelp(0);
 

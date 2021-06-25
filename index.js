@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 
 import path from 'path';
 import execa from 'execa';
@@ -49,10 +48,12 @@ const spinner = ora({ text: '' });
     copy(inDirPath, outDirPath, vars, async (err, createdFiles) => {
       if (err) throw err;
 
+      /*eslint-disable-next-line no-console */
       console.log(`\nCreating files in ${bold.green(outDir)}:`);
 
       createdFiles.forEach((filePath) => {
         const file = path.basename(filePath);
+        /*eslint-disable-next-line no-console */
         console.log(`- ${file}`);
       });
 
@@ -63,6 +64,9 @@ const spinner = ora({ text: '' });
         'cli-alerts',
         'cli-handle-error',
         'babel-eslint',
+        'cli-welcome',
+        'cli-handle-unhandled',
+        'update-notifier',
       ];
 
       const devDeps = ['eslint', 'prettier'];
