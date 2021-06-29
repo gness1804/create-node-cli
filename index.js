@@ -69,7 +69,7 @@ const spinner = ora({ text: '' });
         'update-notifier',
       ];
 
-      const devDeps = ['eslint', 'prettier'];
+      const devDeps = ['eslint', 'prettier', 'auto-changelog'];
 
       spinner.start(
         `\n ${yellow('Installing dependencies.')} This may take a moment...`,

@@ -13,6 +13,7 @@ template/_.eslintrc.cjs
 package.json
 README.md
 CHANGELOG.md
+template/_CHANGELOG.md
 # webpack.config.js
 .prettierrc.json
 # editor-specific files

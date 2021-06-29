@@ -11,6 +11,10 @@
   "scripts": {
     "lint": "eslint . && prettier --check .",
     "fix": "eslint --fix . && prettier --write .",
-    "start": "node index.js"
+    "start": "node index.js",
+    "changelog": "auto-changelog -p && git add CHANGELOG.md",
+    "tag:patch": "npm version patch && npm run changelog",
+    "tag:minor": "npm version minor && npm run changelog",
+    "tag:major": "npm version major && npm run changelog"
   }
 }

@@ -17,6 +17,7 @@ CHANGELOG.md
 template/_.eslintrc.cjs
 template/_.prettierrc.json
 template/_README.md
+template/_CHANGELOG.md
 out/
 .history/
 
