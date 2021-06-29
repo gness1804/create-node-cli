@@ -1,3 +1,6 @@
+# editor-specific files
+.vscode/
+.idea/
 node_modules
 # common config and doc files; uncomment as appropriate
 .prettierrc.json
