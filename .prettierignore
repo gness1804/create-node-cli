@@ -11,6 +11,7 @@ node_modules
 package.json
 _package.json
 README.md
+CHANGELOG.md
 # webpack.config.js
 # project-specific files
 template/_.eslintrc.cjs

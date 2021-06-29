@@ -9,6 +9,7 @@ coverage
 # .babelrc
 package.json
 README.md
+CHANGELOG.md
 # webpack.config.js
 .prettierrc.json
 # editor-specific files
