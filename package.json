@@ -14,10 +14,7 @@
     "start": "node --experimental-json-modules index.js",
     "clean": "node ./utils/clean.js",
     "forget": "rimraf .history && echo \"Removed CLI commands history.\"",
-    "changelog": "auto-changelog -p && git add CHANGELOG.md",
-    "tag:patch": "npm version patch && npm run changelog",
-    "tag:minor": "npm version minor && npm run changelog",
-    "tag:major": "npm version major && npm run changelog"
+    "changelog": "auto-changelog -p && git add CHANGELOG.md"
   },
   "pre-commit": [
     "lint"
