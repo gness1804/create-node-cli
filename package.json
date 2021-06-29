@@ -13,7 +13,8 @@
     "fix": "eslint --fix . && prettier --write .",
     "start": "node --experimental-json-modules index.js",
     "clean": "node ./utils/clean.js",
-    "forget": "rimraf .history && echo \"Removed CLI commands history.\""
+    "forget": "rimraf .history && echo \"Removed CLI commands history.\"",
+    "changelog": "auto-changelog -p && git add CHANGELOG.md"
   },
   "pre-commit": [
     "lint"
@@ -21,6 +22,7 @@
   "author": "gness1804 <graham.nessler@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "auto-changelog": "^2.3.0",
     "eslint": "7.29.0",
     "prettier": "2.3.2"
   },

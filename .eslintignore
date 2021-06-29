@@ -14,7 +14,9 @@ package.json
 README.md
 # webpack.config.js
 .prettierrc.json
+# editor-specific files
+.vscode/
+.idea/
 # project-specific custom files
 out/
 .history/
-
