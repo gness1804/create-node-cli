@@ -6,19 +6,25 @@ build
 # don't lint nyc coverage output
 coverage
 # common config and doc files; uncomment as appropriate
-.eslintrc.js
-.eslintrc.cjs
-template/_.eslintrc.cjs
-# .babelrc
-package.json
-README.md
-CHANGELOG.md
-template/_CHANGELOG.md
-# webpack.config.js
-.prettierrc.json
 # editor-specific files
 .vscode/
 .idea/
-# project-specific custom files
+# node modules
+node_modules
+# common config files
+.prettierrc.json
+.eslintrc.cjs
+*.config.js
+.babelrc
+package.json
+# markdown files
+README.md
+CHANGELOG.md
+# project-specific files
+template/_.eslintrc.cjs
+template/_.prettierrc.json
+template/_README.md
+template/_CHANGELOG.md
+template/_package.json
 out/
 .history/
