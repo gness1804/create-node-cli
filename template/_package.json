@@ -9,8 +9,8 @@
     "{{command}}": "index.js"
   },
   "scripts": {
-    "lint": "eslint . && prettier --check .",
-    "fix": "eslint --fix . && prettier --write .",
+    "lint": "eslint . && prettier --check \"./**/*.{js,json}\"",
+    "fix": "eslint --fix . && prettier --write \"./**/*.{js,json}\"",
     "start": "node index.js",
     "changelog": "auto-changelog -p && git add CHANGELOG.md",
     "tag:patch": "npm version patch && npm run changelog",
