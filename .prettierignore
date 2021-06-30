@@ -1,23 +1,23 @@
-
 # editor-specific files
 .vscode/
 .idea/
+# node modules
 node_modules
-# common config and doc files; uncomment as appropriate
+# common config files
 .prettierrc.json
 .eslintrc.js
-.eslintrc.cjs
-# .babelrc
+*.config.js
+.babelrc
 package.json
-_package.json
+# markdown files
 README.md
 CHANGELOG.md
-# webpack.config.js
 # project-specific files
 template/_.eslintrc.cjs
 template/_.prettierrc.json
 template/_README.md
 template/_CHANGELOG.md
+template/_package.json
 out/
 .history/
 
