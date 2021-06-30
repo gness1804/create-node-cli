@@ -9,7 +9,7 @@ This is a handy tool to create new Node.js CLIs. It allows a user to quickly cre
 This package is based on Ahmad Awais's [npm package of the same name](https://www.npmjs.com/package/create-node-cli). It contains the features of the original app plus a few new goodies:
 
 - Select your preferred package manager (npm or yarn).
-- Support for [ESlint](eslint.org/) as well as [Prettier](prettier.io/), including package.json scripts and config files with sensible defaults.
+- Support for [ESlint](https://eslint.org/) as well as [Prettier](https://prettier.io/), including package.json scripts and config files with sensible defaults.
 - Generates a README.md template that includes important points for a production release.
 - Allows user to choose a Node version to include in a `.nvmrc` file.
 - Written using ESM. (*Coming soon: ability for user to choose to generate a CLI using either ESM or CommonJS*).
