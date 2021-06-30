@@ -4,15 +4,18 @@ node_modules
 build
 # don't lint nyc coverage output
 coverage
-# common config and doc files; uncomment as appropriate
-.eslintrc.js
-# .babelrc
-package.json
-README.md
-CHANGELOG.md
-# webpack.config.js
-.prettierrc.json
 # editor-specific files
 .vscode/
 .idea/
-# project-specific custom files
+# node modules
+node_modules
+# common config files
+.prettierrc.json
+.eslintrc.js
+*.config.js
+.babelrc
+package.json
+# markdown files
+README.md
+CHANGELOG.md
+# project-specific files
