@@ -23,6 +23,7 @@
     "lint"
   ],
   "author": "gness1804 <graham.nessler@gmail.com>",
+  "repository": "gness1804/create-node-cli",
   "license": "MIT",
   "devDependencies": {
     "auto-changelog": "^2.3.0",
