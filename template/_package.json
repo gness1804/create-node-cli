@@ -3,6 +3,7 @@
   "description": "{{description}}",
   "version": "{{version}}",
   "author": "{{authorName}}",
+  "repository": "",
   "type": "module",
   "bin": {
     "{{name}}": "index.js",
