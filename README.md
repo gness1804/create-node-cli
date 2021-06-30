@@ -51,3 +51,7 @@ help  Print help info.
 -d, --debug    Print debug info Default: false
 -v, --version  Print CLI version Default: false
 ```
+
+## Changelog
+
+[❯ Read the changelog here →](changelog.md)

@@ -45,3 +45,7 @@ help  Print help info
 -v, --version  Print CLI version Default: false
 # other flags as needed. You may want to run `yarn start help` or `npm start help` and copy and paste the output.
 ```
+
+## Changelog
+
+[❯ Read the changelog here →](changelog.md)
