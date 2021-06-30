@@ -12,7 +12,7 @@ import updateNotifier from 'update-notifier';
 const func = () => {
   unhandled();
   welcome({
-    title: 'create-node-cli',
+    title: '@gness1804/create-node-cli',
     tagLine: `by ${pkg.author}`,
     description: pkg.description,
     version: pkg.version,
