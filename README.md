@@ -17,7 +17,7 @@ This package is based on Ahmad Awais's [npm package of the same name](https://ww
 ## Install
 
 ```
-npm install -g @gness1804/create-node-cli OR yarn add @gness1804/create-node-cli
+npm install -g @gness1804/create-node-cli OR yarn global add @gness1804/create-node-cli
 OR
 npx @gness1804/create-node-cli
 ```

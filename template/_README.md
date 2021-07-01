@@ -9,7 +9,7 @@
 ## Install
 
 ```
-npm install -g {{name}} OR yarn add {{name}}
+npm install -g {{name}} OR yarn global add {{name}}
 OR
 npx {{name}}
 ```
