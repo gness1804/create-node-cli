@@ -1,6 +1,6 @@
 {
   "name": "@gness1804/create-node-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A scaffolding tool to create production-ready Node CLIs.",
   "type": "module",
   "main": "index.js",
