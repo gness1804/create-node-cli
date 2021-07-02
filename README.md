@@ -54,4 +54,4 @@ help  Print help info.
 
 ## Changelog
 
-[❯ Read the changelog here →](changelog.md)
+[❯ Read the changelog here →](CHANGELOG.md)
