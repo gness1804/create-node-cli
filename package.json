@@ -8,6 +8,12 @@
     "create-node-cli": "index.js",
     "ncli": "index.js"
   },
+  "keywords": [
+    "scaffold",
+    "generator",
+    "generate",
+    "build"
+  ],
   "scripts": {
     "lint": "eslint . && prettier --check \"./**/*.{js,json}\"",
     "fix": "eslint --fix . && prettier --write \"./**/*.{js,json}\"",
