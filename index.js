@@ -9,13 +9,12 @@ const { bold, dim, yellow, green } = chalk;
 import alert from 'cli-alerts';
 import { fileURLToPath } from 'url';
 import ora from 'ora';
-import enquirer from 'enquirer';
-const { Toggle } = enquirer;
 
 import init from './utils/init.js';
 import cli from './utils/cli.js';
 import questions from './utils/questions.js';
 import log from './utils/log.js';
+import packagePrompt from './utils/packagePrompt.js';
 
 const { flags, input, showHelp } = cli;
 const { debug } = flags;
@@ -27,13 +26,7 @@ const spinner = ora({ text: '' });
 
   if (input.includes('help')) showHelp(0);
 
-  const prompt = new Toggle({
-    message: 'Preferred package manager?',
-    enabled: 'yarn',
-    disabled: 'npm',
-  });
-
-  const useYarn = await prompt.run();
+  const useYarn = await packagePrompt.run();
 
   const vars = await questions();
 
