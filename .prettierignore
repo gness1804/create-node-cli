@@ -18,6 +18,11 @@ template/_.prettierrc.json
 template/_README.md
 template/_CHANGELOG.md
 template/_package.json
+templateCJS/_.eslintrc.js
+templateCJS/_.prettierrc.json
+templateCJS/_README.md
+templateCJS/_CHANGELOG.md
+templateCJS/_package.json
 out/
 .history/
 

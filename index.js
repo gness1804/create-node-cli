@@ -15,6 +15,7 @@ import cli from './utils/cli.js';
 import questions from './utils/questions.js';
 import log from './utils/log.js';
 import packagePrompt from './utils/packagePrompt.js';
+import moduleTypePrompt from './utils/moduleTypePrompt.js';
 
 const { flags, input, showHelp } = cli;
 const { debug } = flags;
@@ -26,7 +27,11 @@ const spinner = ora({ text: '' });
 
   if (input.includes('help')) showHelp(0);
 
+  // whether to use yarn or npm.
   const useYarn = await packagePrompt.run();
+
+  // whether to use ESM or CommonJS.
+  const useESM = await moduleTypePrompt.run();
 
   const vars = await questions();
 
@@ -35,7 +40,7 @@ const spinner = ora({ text: '' });
 
     const outDir = vars.name;
     const __dirname = path.dirname(fileURLToPath(import.meta.url));
-    const inDirPath = path.join(__dirname, 'template');
+    const inDirPath = path.join(__dirname, useESM ? 'template' : 'templateCJS');
     const outDirPath = path.join(process.cwd(), outDir);
 
     copy(inDirPath, outDirPath, vars, async (err, createdFiles) => {
@@ -50,9 +55,12 @@ const spinner = ora({ text: '' });
         console.log(`- ${file}`);
       });
 
+      // we need to downgrade to version 9 if supporting CommonJS
+      const meowVersion = useESM ? 'meow@latest' : 'meow@9.0.0';
+
       // install dependencies and clean up the output dir.
       const prodDeps = [
-        'meow',
+        meowVersion,
         'cli-meow-help',
         'cli-alerts',
         'cli-handle-error',
