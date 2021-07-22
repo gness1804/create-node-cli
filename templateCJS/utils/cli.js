@@ -28,7 +28,6 @@ const helpText = meowHelp({
 });
 
 const options = {
-  importMeta: import.meta,
   inferType: true,
   description: false,
   hardRejection: false,
